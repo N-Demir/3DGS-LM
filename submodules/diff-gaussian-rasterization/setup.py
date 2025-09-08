@@ -29,7 +29,10 @@ setup(
                 "ext.cpp"
             ],
             # "--use_fast_math"
-            extra_compile_args={"nvcc": ["-I" + os.path.join(os.path.dirname(os.path.abspath(__file__)), "third_party/glm/"), "--generate-line-info", "-lineinfo", "--use_fast_math"]})
+            extra_compile_args={
+                "cxx": ["-I" + os.path.join(os.path.dirname(os.path.abspath(__file__)), "third_party/glm/")],
+                "nvcc": ["-I" + os.path.join(os.path.dirname(os.path.abspath(__file__)), "third_party/glm/"), "--generate-line-info", "-lineinfo", "--use_fast_math"]
+            })
         ],
     cmdclass={
         'build_ext': BuildExtension
