@@ -17,3 +17,21 @@ output_folder=$2
 #   python render.py --data $data_folder/test --output $output_folder --eval
 # 3) Move the renders into `$output_folder/test_renders`
 #   mv $output_folder/test/ours_30000/renders $output_folder/test_renders
+
+iterations=10
+
+python train.py -s $data_folder -m $output_folder --eval --iterations $iterations \
+    --image_subsample_size 25 \
+    --image_subsample_n_iters 4 \
+    --image_subsample_frame_selection_mode "strided" \
+    --num_sgd_iterations_before_gn 20000 \
+    --perc_images_in_line_search 0.3 \
+    --pcg_rtol 5e-2 \
+    --pcg_max_iter 8 \
+    --min_trust_region_radius 1e-4 \
+    --trust_region_radius 1e-3 \
+    --max_trust_region_radius 1e-2
+
+python render.py -s $data_folder -m $output_folder --eval --iteration $iterations
+
+mv $output_folder/test/ours_$iterations/renders $output_folder/test_renders

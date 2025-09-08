@@ -86,4 +86,13 @@ image = (
     # .run_commands("pip install submodules/diff-gaussian-rasterization")
     # .run_commands("pip install -e .")
     # Note: If your run_commands step needs access to a gpu it's actually possible to do that through "run_commands(gpu='L40S', ...)"
+    .run_commands("git clone https://github.com/N-Demir/3DGS-LM.git . --recursive")
+
+    .run_commands("pip install plyfile")
+    .run_commands("pip install tqdm")
+    .run_commands("pip install opencv-python")
+    .run_commands("pip install joblib")
+    .run_commands("pip install submodules/diff-gaussian-rasterization")
+    .run_commands("pip install submodules/simple-knn")
+    .run_commands("pip install submodules/fused-ssim")
 )
