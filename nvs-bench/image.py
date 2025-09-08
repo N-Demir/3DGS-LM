@@ -94,5 +94,7 @@ image = (
     .run_commands("pip install joblib")
     .run_commands("pip install submodules/diff-gaussian-rasterization", gpu='T4')
     .run_commands("pip install submodules/simple-knn")
-    .run_commands("pip install submodules/fused-ssim")
+    .run_commands("pip install ffmpeg-python")
+    .run_commands("pip install imageio")
+    
 )
