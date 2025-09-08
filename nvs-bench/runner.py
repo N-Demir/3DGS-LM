@@ -45,7 +45,7 @@ def log_time(log_file: str):
 
 @app.function(
     timeout=3600 * 8,
-    gpu="L40S",
+    gpu="A100-80GB",
 )
 def eval(data: str):
     data_folder = Path(f"/nvs-bench/data/{data}/")
